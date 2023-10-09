@@ -12,12 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // You can test your helper functions by  calling them from onCreate() and
-        // printing their output to the Log, which is visible in the LogCat:
-        Log.d("function output", getTestDataArray().toString())
-        //val x = getTestDataArray()
-        //print(x)
+        // tested the code on play.kotlin.org
     }
 
 
@@ -67,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     // Create a view from an item in a collection, but recycle if possible (similar to an AdapterView's adapter)
 
+
     private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View {
         val textView: TextView
 
@@ -82,5 +78,21 @@ class MainActivity : AppCompatActivity() {
         return textView
     }
 
+
+    /*
+    private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View = run{
+        val textView: TextView
+
+        if (recycledView != null) {
+            textView = recycledView as TextView
+        } else {
+            textView = TextView(context)
+            textView.setPadding(5, 10, 10, 0)
+            textView.textSize = 22f
+        }
+    }.apply{ val textView.text = collection[position].toString()
+    }
+
+     */
 
 }
