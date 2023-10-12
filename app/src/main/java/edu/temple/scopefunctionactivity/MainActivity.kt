@@ -101,15 +101,14 @@ class MainActivity : AppCompatActivity() {
      */
 
     // this was from the lecture on 10/12/2023
-    private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View {
-        return if(recycledView !=null){
+    private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context) = if(recycledView !=null){
             recycledView as TextView
         }
         else{
             TextView(context).apply {
                 setPadding(5,10,10,0)
                 textSize = 22f
-            }
+            }.apply {text = collection[position].toString()}
         }
 
     }
