@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity() {
         return testArray
     }
     */
-    private fun getTestDataArray() = (MutableList(10){Random.nextInt()}).sort()
+    //this is the one i attempted in lab but its not a scope
+    //private fun getTestDataArray() = (MutableList(10){Random.nextInt()}).sort()
+    private fun getTestDataArray() = MutableList(10){Random.nextInt()}.apply{sort()}
 
     // Return true if average value in list is greater than median value, false otherwise
     /*
@@ -63,6 +65,7 @@ class MainActivity : AppCompatActivity() {
     // Create a view from an item in a collection, but recycle if possible (similar to an AdapterView's adapter)
 
 
+    /*
     private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View {
         val textView: TextView
 
@@ -77,9 +80,11 @@ class MainActivity : AppCompatActivity() {
         textView.text = collection[position].toString()
         return textView
     }
+     */
 
 
     /*
+    //this is the one i attempted in lab
     private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View = run{
         val textView: TextView
 
@@ -94,5 +99,19 @@ class MainActivity : AppCompatActivity() {
     }
 
      */
+
+    // this was from the lecture on 10/12/2023
+    private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View {
+        return if(recycledView !=null){
+            recycledView as TextView
+        }
+        else{
+            TextView(context).apply {
+                setPadding(5,10,10,0)
+                textSize = 22f
+            }
+        }
+
+    }
 
 }
